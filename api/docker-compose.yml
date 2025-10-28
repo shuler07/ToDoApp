@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=todoapp
+    networks:
+      - todoapp-network
+    volumes:
+      - data:/var/lib/postgresql/data
+    
+  api:
+    image: todoapp-api
+    environment:
+      URL_DATABASE_POSTGRES: ${URL_DATABASE_POSTGRES}
+    networks:
+      - todoapp-network
+    depends_on:
+      - postgres
+  
+  web:
+    image: todoapp-web
+    networks:
+      - todoapp-network
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+  
+networks:
+  todoapp-network:
+    driver: bridge
+  
+volumes:
+  data:
