@@ -1,11 +1,10 @@
-# ToDoApp
-Веб-сервис, реализованный на React, для создания, изменения, хранения и удобной организации пользовательских заметок. Возможности на данный момент: 
+# (Rus) ToDoApp
+Веб-сервис, реализованный на React, FastAPI и PostgreSQL. Служит для создания, изменения, хранения и удобной организации пользовательских заметок. Возможности на данный момент: 
 - Аутентификация пользователя по почте + паролю с верификацией почты  
-- Создание, изменение заметок и заголовков  
+- Создание, обновление, удаление, получение заметок
 - Статусы заметок: выполненные, невыполненные и удаленные  
-- Пользовательские теги для заметок: важное, любимое и любые другие, созданные пользователем 
-
-API реализовано на FastAPI, который отвечает за серверную часть - логика приложения и запросы к БД
+- Пользовательские теги для заметок: важное, любимое и любые другие, созданные пользователем
+- Обновление почты, пароля, никнейма
 
 ## Как запустить
 Для запуска потребуется установленный docker
@@ -22,9 +21,38 @@ API реализовано на FastAPI, который отвечает за с
 #### После запуска сервер будет находиться по адресу: http://localhost:5173
 
 ## Дополнительные настройки
+.env файл задан по умолчанию с базовыми настройками и отключенной верификацией почты  
+Для включения верификации, см. документацию [google](https://developers.google.com/workspace/gmail/api/quickstart/python). После настройки в .env изменить:  
+###### VERIFICATION_ENABLED = "True"  
+###### EMAIL_USER = "<ваша почта>"  
+###### EMAIL_PASSWORD = "<специальный пароль для доступа к Gmail API>"  
 
-.env файл задан по умолчанию с базовыми настройками и отключенной верификацией почты.
-Для включения верификации, см. документацию [google](https://developers.google.com/workspace/gmail/api/quickstart/python). После настройки в .env изменить:
-VERIFICATION_ENABLED = "True"
-EMAIL_USER = "<ваша почта>"
-EMAIL_PASSWORD = "<специальный пароль для доступа к Gmail API>"
+# (Eng) ToDoApp
+A web service built on React, FastAPI, and PostgreSQL. It allows you to create, edit, store, and easily organize user notes. Current features:
+- User authentication via email and password with email verification
+- Create, update, delete, and retrieve notes
+- Note statuses: completed, uncompleted, and deleted
+- Custom tags for notes: important, favorite, and any other tags created by the user
+- Update email, password, and nickname
+
+## How to run
+Docker must be installed to run.
+1. Copy the repository to your device.
+2. Run the API image build:
+###### docker build api -t todoapp-api
+3. Run the frontend image build:
+###### docker build web -t todoapp-web
+4. Pull the postgres image:
+###### docker image pull postgres:latest
+5. Compose the API, frontend, and postgres:
+###### docker compose up -d
+
+#### After starting, the server will be located at: http://localhost:5173
+
+## Additional settings
+
+The .env file is set by default with basic settings and email verification disabled  
+To enable verification, see the [google](https://developers.google.com/workspace/gmail/api/quickstart/python) documentation. After configuring, change the following in .env:  
+###### VERIFICATION_ENABLED = "True"
+###### EMAIL_USER = "<your email>"
+###### EMAIL_PASSWORD = "<special password for accessing the Gmail API>"
