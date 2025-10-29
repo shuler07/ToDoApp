@@ -8,7 +8,9 @@
 
 ## Как запустить
 Для запуска потребуется установленный docker
-1. Скопируйте репозиторий к себе на устройство.  
+
+### 1 способ:
+1. Установите репозиторий к себе на устройство и запустите терминал из этой директории 
 2. Запустить билд образа API:
    ###### docker build api -t todoapp-api
 3. Запустить билд образа фронта:
@@ -16,6 +18,16 @@
 4. Подтянуть образ postgres:
    ###### docker image pull postgres:latest
 5. Поднять композ из API, фронта и postgres:
+   ###### docker compose up -d
+
+### 2 способ:
+1. Подтянуть образ API:
+   ###### docker image pull shuler7/todoapp-api:1.0
+2. Подтянуть образ фронта:
+   ###### docker image pull shuler7/todoapp-web:1.0
+3. Подтянуть образ postgres:
+   ###### docker image pull postgres:latest
+4. Поднять композ из API, фронта и postgres:
    ###### docker compose up -d
 
 #### После запуска сервер будет находиться по адресу: http://localhost:5173
@@ -27,6 +39,8 @@
 ###### EMAIL_USER = "<ваша почта>"  
 ###### EMAIL_PASSWORD = "<специальный пароль для доступа к Gmail API>"  
 
+
+
 # (Eng) ToDoApp
 A web service built on React, FastAPI, and PostgreSQL. It allows you to create, edit, store, and easily organize user notes. Current features:
 - User authentication via email and password with email verification
@@ -37,7 +51,9 @@ A web service built on React, FastAPI, and PostgreSQL. It allows you to create, 
 
 ## How to run
 Docker must be installed to run.
-1. Copy the repository to your device.
+
+### 1 way:
+1. Istall the repository to your device and run terminal from this directory.
 2. Run the API image build:
 ###### docker build api -t todoapp-api
 3. Run the frontend image build:
@@ -45,6 +61,16 @@ Docker must be installed to run.
 4. Pull the postgres image:
 ###### docker image pull postgres:latest
 5. Compose the API, frontend, and postgres:
+###### docker compose up -d
+
+### 2 way:
+1. Pull the API image:
+###### docker image pull shuler7/todoapp-api:1.0
+2. Pull the frontend image:
+###### docker image pull shuler7/todoapp-web:1.0
+3. Pull the postgres image:
+###### docker image pull postgres:latest
+4. Compose the API, frontend, and postgres:
 ###### docker compose up -d
 
 #### After starting, the server will be located at: http://localhost:5173
