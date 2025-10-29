@@ -11,7 +11,7 @@ services:
     
   api:
     build: /api
-    image: shuler7/todoapp-api:1.0
+    image: shuler7/todoapp-api:1.01
     environment:
       URL_DATABASE_POSTGRES: ${URL_DATABASE_POSTGRES}
     networks:
@@ -21,7 +21,7 @@ services:
   
   web:
     build: /web
-    image: shuler7/todoapp-web:1.0
+    image: shuler7/todoapp-web:1.01
     networks:
       - todoapp-network
     ports:
