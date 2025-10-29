@@ -4,14 +4,14 @@ services:
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=todoapp
     networks:
       - todoapp-network
     volumes:
       - data:/var/lib/postgresql/data
     
   api:
-    image: todoapp-api
+    build: /api
+    image: shuler7/todoapp-api:1.0
     environment:
       URL_DATABASE_POSTGRES: ${URL_DATABASE_POSTGRES}
     networks:
@@ -20,7 +20,8 @@ services:
       - postgres
   
   web:
-    image: todoapp-web
+    build: /web
+    image: shuler7/todoapp-web:1.0
     networks:
       - todoapp-network
     ports:
