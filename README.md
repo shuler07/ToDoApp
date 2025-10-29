@@ -10,24 +10,19 @@
 Для запуска потребуется установленный docker
 
 ### 1 способ:
-1. Установите репозиторий к себе на устройство и запустите терминал из этой директории 
-2. Запустить билд образа API:
-   ###### docker build api -t todoapp-api
-3. Запустить билд образа фронта:
-   ###### docker build web -t todoapp-web
-4. Подтянуть образ postgres:
+1. Установить репозиторий к себе на устройство и запустить термина из директории, куда он был установлен 
+2. Запустить билд образа API, фронта:
+   ###### docker compose build
+3. Подтянуть образ postgres:
    ###### docker image pull postgres:latest
-5. Поднять композ из API, фронта и postgres:
+4. Запустить сервис:
    ###### docker compose up -d
 
 ### 2 способ:
-1. Подтянуть образ API:
-   ###### docker image pull shuler7/todoapp-api:1.0
-2. Подтянуть образ фронта:
-   ###### docker image pull shuler7/todoapp-web:1.0
-3. Подтянуть образ postgres:
-   ###### docker image pull postgres:latest
-4. Поднять композ из API, фронта и postgres:
+1. Скачать файл docker-compose.yml и запустить терминал из директории, куда он был установлен
+2. Подтянуть необходимые образы:
+   ###### docker compose pull
+3. Запустить сервис:
    ###### docker compose up -d
 
 #### После запуска сервер будет находиться по адресу: http://localhost:5173
@@ -53,24 +48,19 @@ A web service built on React, FastAPI, and PostgreSQL. It allows you to create, 
 Docker must be installed to run.
 
 ### 1 way:
-1. Istall the repository to your device and run terminal from this directory.
-2. Run the API image build:
-###### docker build api -t todoapp-api
-3. Run the frontend image build:
-###### docker build web -t todoapp-web
-4. Pull the postgres image:
+1. Istall the repository to your device and run terminal from directory where it was installed.
+2. Run the API and front image builds:
+###### docker compose build
+3. Pull the postgres image:
 ###### docker image pull postgres:latest
-5. Compose the API, frontend, and postgres:
+4. Launch service:
 ###### docker compose up -d
 
 ### 2 way:
-1. Pull the API image:
-###### docker image pull shuler7/todoapp-api:1.0
-2. Pull the frontend image:
-###### docker image pull shuler7/todoapp-web:1.0
-3. Pull the postgres image:
-###### docker image pull postgres:latest
-4. Compose the API, frontend, and postgres:
+1. Install file docker-compose.yml and run terminal from directory where it was installed
+2. Pull the neccessary images:
+###### docker compose pull
+3. Launch service:
 ###### docker compose up -d
 
 #### After starting, the server will be located at: http://localhost:5173
