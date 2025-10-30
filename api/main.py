@@ -26,7 +26,7 @@ app = FastAPI(
     description="Create and store your notes with comfort",
     summary="Notes manager",
     lifespan=lifespan,
-    version="1.0",
+    version="1.02",
 )
 
 app.state.limiter = limiter

@@ -1,0 +1,76 @@
+#noteTagsWindow {
+    margin: .5rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    width: 10rem;
+    max-height: calc(80% - 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--containerColor);
+    animation: noteTagsWindowAppear 0.25s ease forwards;
+}
+@keyframes noteTagsWindowAppear {
+    0% {
+        translate: 14rem 0;
+        scale: 0.95;
+    }
+    100% {
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+#noteTagsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#tagEditAddNew {
+    width: fit-content;
+    background: var(--primaryColor);
+    gap: .5rem;
+    cursor: pointer;
+}
+
+.tagEditElement {
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.tagEditElementRemoveButton {
+    padding: .5rem;
+    height: 1rem;
+    width: 1rem;
+    background: var(--primaryColor);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 600px) {
+    #noteTagsWindow {
+        margin: .5rem;
+        min-width: fit-content;
+        width: 40%;
+        animation: noteTagsWindowAppearMobile 0.25s ease forwards;;
+    }
+    @keyframes noteTagsWindowAppearMobile {
+        0% {
+            translate: 0 10rem;
+            scale: 0.95;
+        }
+        100% {
+            translate: 0 0;
+            scale: 1;
+        }
+    }
+}

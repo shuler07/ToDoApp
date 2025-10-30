@@ -120,17 +120,17 @@ Follow the link to verify your email: {email_link}\n\
 
             email_sender.send_message(newUser.email, email_msg)
 
-            return {"isRegistered": True}
+            return {"isRegistered": True, "verificationSent": True}
         else:
-            new_user = UserSchema(
+            new_user = UserModel(
                 email=newUser.email,
                 password=hashed_password,
                 username=newUser.username,
             )
-            await session.add(new_user)
+            session.add(new_user)
             await session.commit()
 
-            return {"isRegistered": True}
+            return {"isRegistered": True, "verificationSent": False}
     except Exception as e:
         print("Something went wrong [Register]", e)
 

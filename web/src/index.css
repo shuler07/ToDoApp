@@ -1,0 +1,208 @@
+/* Default tags and root */
+
+#root {
+  min-height: 100dvh;
+  font-size: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  box-sizing: content-box;
+}
+
+h1 {font-size: 2em;}
+h2 {font-size: 1.75em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+h5 {font-size: 1em;}
+h6 {font-size: 0.8em;}
+
+/* Theme settings */
+
+@property --accentColor {
+  syntax: '<color>';
+  initial-value: #0886ff;
+  inherits: false;
+}
+@property --accentBlendColor {
+  syntax: '<color>';
+  initial-value: #bfe0ff;
+  inherits: false;
+}
+
+.lightTheme {
+  --primaryColor: #e3e3e3;
+  --secondaryColor: #d0d0d0;
+
+  --containerHighColor: #3c3c3c;
+  --containerColor: #b9b9b9;
+  --containerLowColor: #a0a0a0;
+
+  --inverseColor: black;
+  --imageTint: invert(1);
+}
+
+.darkTheme {
+  --primaryColor: black;
+  --secondaryColor: #161616;
+
+  --containerHighColor: #dcdcdc;
+  --containerColor: #242424;
+  --containerLowColor: #353535;
+
+  --inverseColor: #e3e3e3;
+  --imageTint: invert(0);
+}
+
+
+
+/* Custom elements */
+
+.fixedElementFullScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+
+
+.themedImg {
+  user-select: none;
+  filter: var(--imageTint);
+  width: 2rem;
+  height: 2rem;
+}
+
+
+
+.themedText {
+  font-family: system-ui;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  color: var(--inverseColor);
+}
+.bold {font-weight: bold;}
+.white {color: #f0f0f0;}
+.black {color: black}
+
+
+
+.themedButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1rem;
+  width: fit-content;
+  border: none;
+  border-radius: 1rem;
+}
+.themedButton > p {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.themedButton.base.primary {background: var(--accentColor);}
+.themedButton.base.primary > p {color: white;}
+
+.themedButton.base.accent {background: var(--accentBlendColor);}
+.themedButton.base.accent > p {color: var(--accentColor);}
+
+.themedButton.delete.primary {background: #ff0808;}
+.themedButton.delete.primary > p {color: white;}
+
+.themedButton.delete.accent {background: #ffbfbf;}
+.themedButton.delete.accent > p {color: #ff0000;}
+
+
+
+.themedTextArea {
+  padding: .5rem;
+  width: calc(100% - 1rem);
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  resize: none;
+  overflow: hidden;
+}
+.themedTextArea:focus-visible {outline: none;}
+
+
+
+.clickable:not(:disabled):not(.active) {
+  cursor: pointer;
+  transition: scale 0.25s ease;
+}
+.clickable:hover:not(.active):not(:disabled) {scale: 0.95;}
+
+.clickableWithBg {
+  padding: .5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+.clickableWithBg > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.clickableWithBg:hover {
+  background: color-mix(in srgb, var(--containerHighColor) 20%, transparent);
+}
+
+.transparentInput {
+  padding: .5rem;
+  font-size: 1.5em;
+  border: none;
+  background: none;
+}
+.transparentInput:focus-visible {outline: none;}
+
+.themedInput {
+  padding: .75rem 1.5rem;
+  width: calc(100% - 3rem);
+  border: none;
+  border-radius: 1rem;
+  background: var(--containerLowColor);
+  color: var(--inverseColor);
+  font-size: 1em;
+  transition: all 0.25s ease;
+}
+.themedInput:focus-visible {
+  padding: 1rem 1.5rem;
+  outline: none;
+}
+
+.divider {
+  margin: .5rem 1rem;
+  width: calc(100% - 2rem);
+  height: 2px;
+  background: #ffffff80;
+  border-radius: 1px;
+}
+
+
+
+@media (max-width: 800px) {
+  html {
+    font-size: 75%;
+  }
+}

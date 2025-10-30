@@ -3,7 +3,6 @@ from fastapi import Depends
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.ext.asyncio.engine import create_async_engine
 from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession, AsyncEngine
-import json
 
 from os import environ
 from dotenv import load_dotenv

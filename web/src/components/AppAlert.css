@@ -1,0 +1,39 @@
+#appAlertContainer {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#appAlert {
+    display: none;
+    margin-top: 1rem;
+    padding: .5rem 1rem;
+    max-width: 10rem;
+    border-radius: 2rem;
+    animation: appAlertAppear 3s forwards;
+}
+
+#appAlert > h6 {
+    text-align: center;
+}
+
+@keyframes appAlertAppear {
+    0% {
+        opacity: 0;
+        translate: 0 -10px;
+    }
+    20% {
+        opacity: 1;
+        translate: 0 0;
+    }
+    80% {
+        opacity: 1;
+        translate: 0 0;
+    }
+    100% {
+        opacity: 0;
+        translate: 0 -10px;
+    }
+}

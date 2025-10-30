@@ -1,0 +1,90 @@
+#noteWindowTagsAdd {
+    margin: .5rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    width: 10rem;
+    max-height: calc(20% - 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--containerColor);
+    z-index: 2;
+    animation: noteWindowTagsAddAppear 0.25s ease forwards;
+}
+@keyframes noteWindowTagsAddAppear {
+    0% {
+        translate: 12.5rem 0;
+        scale: 0.95;
+    }
+    100% {
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+#addTagContainer {
+    position: relative;
+    display: flex;
+    gap: .5rem;
+}
+
+#addTagInput {
+    padding: 0 1rem;
+    width: calc(100% - 4.5rem);
+    height: 2rem;
+    font-size: 0.8em;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}
+#addTagInput::placeholder {
+    color: white;
+}
+
+.addTagButton {
+    padding: .5rem;
+    height: 1rem;
+    width: 1rem;
+    background: var(--primaryColor);
+    border-radius: 1rem;
+}
+.addTagButton:disabled {
+    background: color-mix(in srgb, var(--primaryColor) 50%, transparent);
+}
+
+#addTagColorContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+    grid-template-rows: repeat(auto-fit, 2rem);
+    gap: .5rem;
+}
+
+.tagColorElement {
+    width: 2rem;
+    height: 2rem;
+    border: solid 2px #ffffff00;
+    border-radius: 1rem;
+    transition: all 0.25s ease;
+}
+.tagColorElement.active {
+    border: solid 2px white;
+}
+
+
+
+@media (max-width: 600px) {
+    #noteWindowTagsAdd {
+        flex-grow: 1;
+        animation: noteWindowTagsAddAppearMobile 0.25s ease forwards;
+    }
+    @keyframes noteWindowTagsAddAppearMobile {
+        0% {
+            translate: 0 10rem;
+            scale: 0.95;
+        }
+        100% {
+            translate: 0 0;
+            scale: 1;
+        }
+    }
+}

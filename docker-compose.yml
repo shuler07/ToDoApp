@@ -1,37 +1,42 @@
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:17
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     networks:
-      - todoapp-network
+      - backend
     volumes:
       - data:/var/lib/postgresql/data
-    
+
   api:
     build: /api
-    image: shuler7/todoapp-api:1.01
+    image: shuler7/todoapp-api:1.02
     environment:
       URL_DATABASE_POSTGRES: ${URL_DATABASE_POSTGRES}
     networks:
-      - todoapp-network
+      - backend
+      - frontend
     depends_on:
       - postgres
-  
+
   web:
     build: /web
-    image: shuler7/todoapp-web:1.01
+    image: shuler7/todoapp-web:1.02
     networks:
-      - todoapp-network
+      - frontend
     ports:
       - "5173:5173"
     depends_on:
       - api
-  
+
 networks:
-  todoapp-network:
+  frontend:
     driver: bridge
-  
+  backend:
+    driver: bridge
+    internal: true
+
 volumes:
   data:

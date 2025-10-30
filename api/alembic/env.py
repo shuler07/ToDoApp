@@ -5,9 +5,11 @@ from sqlalchemy import pool
 from database import Base
 from models.usermodel import UserModel
 from models.notesmodel import NotesModel
-from os import environ
 
 from alembic import context
+
+from os import environ
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

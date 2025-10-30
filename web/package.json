@@ -1,7 +1,7 @@
 {
   "name": "todoapp",
   "private": true,
-  "version": "1.0",
+  "version": "1.02",
   "type": "module",
   "scripts": {
     "dev": "vite",

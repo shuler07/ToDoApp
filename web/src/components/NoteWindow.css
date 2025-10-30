@@ -1,0 +1,124 @@
+#noteWindowBg {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    z-index: 1;
+    animation: blurBgAppear 0.25s ease forwards;
+}
+@keyframes blurBgAppear {
+    0% {
+        background: #00000000;
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        background: #00000080;
+        backdrop-filter: blur(4px);
+    }
+}
+
+#noteWindow {
+    margin: .5rem;
+    padding: 1rem;
+    width: 30rem;
+    height: calc(100% - 3rem);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    gap: 1rem;
+    background: var(--containerColor);
+    z-index: 1;
+    animation: noteWindowAppear 0.25s ease forwards;
+}
+@keyframes noteWindowAppear {
+    0% {
+        scale: 0.9;
+        translate: 32.5rem 0;
+    }
+    100% {
+        scale: 1;
+        translate: 0 0;
+    }
+}
+
+#noteWindowHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#noteWindowTags {
+    display: flex;
+    gap: 0.5rem;
+    cursor: grab;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
+}
+#noteWindowTags:active {
+    cursor: grabbing;
+}
+
+#noteWindowTagsContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+#noteWindowTagsEdit {
+    padding: .5rem 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    background: var(--primaryColor);
+    cursor: pointer !important;
+}
+
+.tagElement {
+    padding: 0 1rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+#noteWindowMain {
+    position: relative;
+    height: 100%;
+}
+
+#noteWindowFooter {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+
+@media (max-width: 600px) {
+    #noteWindow {
+        margin-top: 10.5rem;
+        height: calc(100% - 13rem);
+        width: calc(100% - 3rem);
+    }
+
+    #noteWindowTagsContainer {
+        flex-direction: row-reverse;
+        position: fixed;
+        bottom: 0;
+        width: 100dvw;
+        z-index: 2; 
+    }
+
+    #noteWindowTagsEditBg {
+        animation: blurBgAppear 0.25s ease forwards;
+    }
+}

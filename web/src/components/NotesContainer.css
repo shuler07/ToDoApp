@@ -1,0 +1,64 @@
+.notesBox {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notesContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-rows: repeat(auto-fit, 16rem);
+}
+
+.noteElement {
+    padding: 1rem;
+    min-width: 6rem;
+    height: 14rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    background: var(--containerColor);
+    border: solid 2px #ffffff00;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.noteElement:hover {
+    translate: 0 4px;
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--inverseColor) 10%, transparent);
+    border: solid 2px color-mix(in srgb, var(--inverseColor) 10%, transparent);
+}
+
+.noteElement h1 {min-height: fit-content;}
+
+.noteElementIndicator {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition: all 0.25s ease;
+}
+.noteElement:hover .noteElementIndicator {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+.noteElementIndicator > img {
+    scale: 0;
+    transition: all 0.25s ease;
+}
+.noteElement:hover .noteElementIndicator > img {
+    scale: 1;
+}
+.noteElementIndicator.trash {background: #de4646;}
+.noteElementIndicator.not_completed {background: #969021;}
+.noteElementIndicator.completed {background: #34ad34;}
