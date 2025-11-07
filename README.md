@@ -57,7 +57,7 @@ Docker must be installed to run.
 ###### docker compose up -d
 
 ### 2 way:
-1. Install file docker-compose.yml and run terminal from directory where it was installed
+1. Install files docker-compose.yml, .env and run terminal from directory where it was installed
 2. Pull the neccessary images:
 ###### docker compose pull
 3. Launch service:
